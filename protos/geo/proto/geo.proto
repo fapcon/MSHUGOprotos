@@ -5,8 +5,8 @@ package proto;
 option go_package = "MSHUGO/geo/protos/proto";
 
 service GeoService {
-  rpc SearchAddress(SearchRequest) returns (SearchResponse){}
-  rpc GeocodeAddress(GeocodeRequest) returns (GeocodeResponse){}
+  rpc Search(SearchRequest) returns (SearchResponse){}
+  rpc Geocode(GeocodeRequest) returns (GeocodeResponse){}
 }
 
 message SearchRequest {

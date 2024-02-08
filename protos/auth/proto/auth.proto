@@ -7,12 +7,12 @@ option go_package = "MSHUGO/auth/protos/proto";
 service AuthService {
   rpc Register(RegisterRequest)returns(RegisterResponse){}
   rpc Login(LoginRequest)returns(LoginResponse){}
-  rpc ItsValid(ValidRequest)returns(ValidResponse){}
+  rpc IsValid(ValidRequest)returns(ValidResponse){}
 }
 
 message RegisterRequest {
   string email = 1;
-  string hashepassword = 2;
+  string hashedpassword = 2;
 }
 
 message RegisterResponse {
