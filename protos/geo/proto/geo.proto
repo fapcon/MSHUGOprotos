@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "MSHUGO/geo/protos/proto";
+
+service GeoService {
+  rpc SearchAddress(SearchRequest) returns (SearchResponse){}
+  rpc GeocodeAddress(GeocodeRequest) returns (GeocodeResponse){}
+}
+
+message SearchRequest {
+  string input = 1;
+  string token = 2;
+}
+
+message SearchResponse {
+  bytes data = 1;
+}
+
+message GeocodeRequest {
+  string lat = 1;
+  string lon = 2;
+}
+
+message GeocodeResponse {
+  bytes data = 1;
+}
+

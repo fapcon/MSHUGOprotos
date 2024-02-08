@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "MSHUGO/auth/protos/proto";
+
+service AuthService {
+  rpc Register(RegisterRequest)returns(RegisterResponse){}
+  rpc Login(LoginRequest)returns(LoginResponse){}
+  rpc ItsValid(ValidRequest)returns(ValidResponse){}
+}
+
+message RegisterRequest {
+  string email = 1;
+  string hashepassword = 2;
+}
+
+message RegisterResponse {
+  string message = 1;
+}
+
+message LoginRequest {
+  string email = 1;
+  string password = 2;
+}
+
+message LoginResponse {
+  string token = 1;
+}
+
+message ValidRequest {
+  string token = 1;
+}
+message ValidResponse {
+  bool isValid = 1;
+}
