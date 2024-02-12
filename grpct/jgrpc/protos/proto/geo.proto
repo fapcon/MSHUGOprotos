@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "go-kata/course4/grpctask/grpc/protos";
+
+service GeoService {
+  rpc Search(SearchRequest) returns (SearchResponse){}
+  rpc Geocode(GeocodeRequest) returns (GeocodeResponse){}
+}
+
+message SearchRequest {
+  string input = 1;
+}
+
+message SearchResponse {
+  bytes data = 1;
+}
+
+message GeocodeRequest {
+  string lat = 1;
+  string lon = 2;
+}
+
+message GeocodeResponse {
+  bytes data = 1;
+}
+

@@ -1,0 +1,274 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is the API documentation for the Proxy Service.",
+        "title": "Proxy Service API",
+        "contact": {},
+        "version": "1.0"
+    },
+    "host": "localhost:8080",
+    "basePath": "/",
+    "paths": {
+        "/api/address/geocode": {
+            "post": {
+                "description": "Handles geocode requests",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Geocode handler",
+                "operationId": "geocode-handler",
+                "parameters": [
+                    {
+                        "description": "Latitude",
+                        "name": "lat",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "description": "Longitude",
+                        "name": "lng",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Address"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/address/search": {
+            "post": {
+                "description": "Handles search requests",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Search handler",
+                "operationId": "search-handler",
+                "parameters": [
+                    {
+                        "description": "Search query",
+                        "name": "query",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.SearchRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Address"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.Address": {
+            "type": "object",
+            "properties": {
+                "area": {},
+                "area_fias_id": {},
+                "area_kladr_id": {},
+                "area_type": {},
+                "area_type_full": {},
+                "area_with_type": {},
+                "beltway_distance": {},
+                "beltway_hit": {},
+                "block": {},
+                "block_type": {},
+                "block_type_full": {},
+                "capital_marker": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "city_area": {},
+                "city_district": {},
+                "city_district_fias_id": {},
+                "city_district_kladr_id": {},
+                "city_district_type": {},
+                "city_district_type_full": {},
+                "city_district_with_type": {},
+                "city_fias_id": {
+                    "type": "string"
+                },
+                "city_kladr_id": {
+                    "type": "string"
+                },
+                "city_type": {
+                    "type": "string"
+                },
+                "city_type_full": {
+                    "type": "string"
+                },
+                "city_with_type": {
+                    "type": "string"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "country_iso_code": {
+                    "type": "string"
+                },
+                "divisions": {},
+                "entrance": {},
+                "federal_district": {},
+                "fias_actuality_state": {
+                    "type": "string"
+                },
+                "fias_cadastre_number": {
+                    "type": "string"
+                },
+                "fias_id": {
+                    "type": "string"
+                },
+                "fias_level": {
+                    "type": "string"
+                },
+                "flat": {},
+                "flat_area": {},
+                "flat_cadnum": {},
+                "flat_fias_id": {},
+                "flat_price": {},
+                "flat_type": {},
+                "flat_type_full": {},
+                "floor": {},
+                "geo_lat": {
+                    "type": "string"
+                },
+                "geo_lon": {
+                    "type": "string"
+                },
+                "geoname_id": {
+                    "type": "string"
+                },
+                "history_values": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "house": {},
+                "house_cadnum": {},
+                "house_fias_id": {},
+                "house_kladr_id": {},
+                "house_type": {},
+                "house_type_full": {},
+                "kladr_id": {
+                    "type": "string"
+                },
+                "metro": {},
+                "okato": {
+                    "type": "string"
+                },
+                "oktmo": {
+                    "type": "string"
+                },
+                "postal_box": {},
+                "postal_code": {},
+                "qc": {},
+                "qc_complete": {},
+                "qc_geo": {
+                    "type": "string"
+                },
+                "qc_house": {},
+                "region": {
+                    "type": "string"
+                },
+                "region_fias_id": {
+                    "type": "string"
+                },
+                "region_iso_code": {
+                    "type": "string"
+                },
+                "region_kladr_id": {
+                    "type": "string"
+                },
+                "region_type": {
+                    "type": "string"
+                },
+                "region_type_full": {
+                    "type": "string"
+                },
+                "region_with_type": {
+                    "type": "string"
+                },
+                "source": {},
+                "square_meter_price": {},
+                "stead": {},
+                "stead_cadnum": {},
+                "stead_fias_id": {},
+                "stead_type": {},
+                "stead_type_full": {},
+                "street": {
+                    "type": "string"
+                },
+                "street_fias_id": {
+                    "type": "string"
+                },
+                "street_kladr_id": {
+                    "type": "string"
+                },
+                "street_type": {
+                    "type": "string"
+                },
+                "street_type_full": {
+                    "type": "string"
+                },
+                "street_with_type": {
+                    "type": "string"
+                },
+                "tax_office": {
+                    "type": "string"
+                },
+                "tax_office_legal": {
+                    "type": "string"
+                },
+                "timezone": {},
+                "unparsed_parts": {}
+            }
+        },
+        "models.SearchRequest": {
+            "type": "object",
+            "properties": {
+                "query": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
